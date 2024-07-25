@@ -18,10 +18,14 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 
+
+
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import MKSocialButton from "components/MKSocialButton";
+import MKButton from "components/MKButton";
+
 
 // Material Kit 2 React examples
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
@@ -30,6 +34,7 @@ import FilledInfoCard from "examples/Cards/InfoCards/FilledInfoCard";
 
 // Presentation page sections
 import Counters from "pages/Presentation/sections/Counters";
+import SkillGrid from "pages/Presentation/sections/SkillGrid"
 import Information from "pages/Presentation/sections/Information";
 import DesignBlocks from "pages/Presentation/sections/DesignBlocks";
 import Pages from "pages/Presentation/sections/Pages";
@@ -77,13 +82,14 @@ function Presentation() {
               color="white"
               mt={-6}
               mb={1}
+              textAlign="center"
               sx={({ breakpoints, typography: { size } }) => ({
                 [breakpoints.down("md")]: {
                   fontSize: size["3xl"],
                 },
               })}
             >
-              Material Kit 2 React{" "}
+              A Multi-Talented Minority Ready to Hire in Your Area{" "}
             </MKTypography>
             <MKTypography
               variant="body1"
@@ -91,10 +97,19 @@ function Presentation() {
               textAlign="center"
               px={{ xs: 6, lg: 12 }}
               mt={1}
+              mb={3}
             >
-              Free & Open Source Web UI Kit built over ReactJS &amp; MUI. Join over 1.6 million
-              developers around the world.
+              {`This is a good opputunity to hire a East Asian Woman in Tech`}<br />
+              {`as a full stack developer`}
             </MKTypography>
+            <MKButton
+              varient="contained"
+              size="medium"
+              colour="white"
+              xs={8}
+              >
+              Hire Her!
+            </MKButton>
           </Grid>
         </Container>
       </MKBox>
@@ -109,6 +124,7 @@ function Presentation() {
           boxShadow: ({ boxShadows: { xxl } }) => xxl,
         }}
       >
+        <SkillGrid />
         <Counters />
         <Information />
         <DesignBlocks />

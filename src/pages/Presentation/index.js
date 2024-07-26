@@ -33,7 +33,6 @@ import DefaultFooter from "examples/Footers/DefaultFooter";
 import FilledInfoCard from "examples/Cards/InfoCards/FilledInfoCard";
 
 // Presentation page sections
-import Counters from "pages/Presentation/sections/Counters";
 import SkillGrid from "pages/Presentation/sections/SkillGrid"
 import Information from "pages/Presentation/sections/Information";
 import DesignBlocks from "pages/Presentation/sections/DesignBlocks";
@@ -125,7 +124,6 @@ function Presentation() {
         }}
       >
         <SkillGrid />
-        <Counters />
         <Information />
         <DesignBlocks />
         <Pages />

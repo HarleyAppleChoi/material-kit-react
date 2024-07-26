@@ -14,91 +14,96 @@ Coded by www.creative-tim.com
 */
 
 // @mui material components
-import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+import Icon from "@mui/material/Icon";
+import { Card, CardMedia } from '@mui/material';
+
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
+import MKTypography from "components/MKTypography";
 
-// Material Kit 2 React examples
-import RotatingCard from "examples/Cards/RotatingCard";
-import RotatingCardFront from "examples/Cards/RotatingCard/RotatingCardFront";
-import RotatingCardBack from "examples/Cards/RotatingCard/RotatingCardBack";
-import DefaultInfoCard from "examples/Cards/InfoCards/DefaultInfoCard";
-
-// Images
-import bgFront from "assets/images/rotating-card-bg-front.jpeg";
-import bgBack from "assets/images/rotating-card-bg-back.jpeg";
-
+import profilePic from "assets/images/profile-pic.jpg";
 function Information() {
+  const aboutMeText = "Experienced full stack software developer with 3 years of expertise. Currently seeking opportunity for full time QA Engineer. Proven track record of delivering exceptional service with meticulous attention to detail. Motivated to contribute quality service in the fast changing technology industry.";
+
+  const attributes = [
+    {
+      icon: 'school',
+      title: 'First Honour Grad',
+      description: 'BSc Computer Science with a year in Industry at Swansea University'
+    },
+    {
+      icon: 'music_note',
+      title: 'Piano Expert',
+      description: 'Trinity College London - Level 4 Diploma in Music • Performance (ATCL) in Piano Recital'
+    },
+    {
+      icon: 'volunteer_activism',
+      title: 'Volunteering',
+      description: 'Teaching Crochet and helper at various activities at Hong Konger CIC Cardiff'
+    },
+  ];
+
   return (
-    <MKBox component="section" py={6} my={6}>
-      <Container>
-        <Grid container item xs={11} spacing={3} alignItems="center" sx={{ mx: "auto" }}>
-          <Grid item xs={12} lg={4} sx={{ mx: "auto" }}>
-            <RotatingCard>
-              <RotatingCardFront
-                image={bgFront}
-                icon="touch_app"
-                title={
-                  <>
-                    Feel the
-                    <br />
-                    Material Kit
-                  </>
-                }
-                description="All the MUI components that you need in a development have been re-design with the new look."
-              />
-              <RotatingCardBack
-                image={bgBack}
-                title="Discover More"
-                description="You will save a lot of time going from prototyping to full-functional code because all elements are implemented."
-                action={{
-                  type: "internal",
-                  route: "/sections/page-sections/page-headers",
-                  label: "start with header",
-                }}
-              />
-            </RotatingCard>
-          </Grid>
-          <Grid item xs={12} lg={7} sx={{ ml: "auto" }}>
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={6}>
-                <DefaultInfoCard
-                  icon="content_copy"
-                  title="Full Documentation"
-                  description="Built by developers for developers. Check the foundation and you will find
-                    everything inside our documentation."
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <DefaultInfoCard
-                  icon="flip_to_front"
-                  title="MUI Ready"
-                  description="The world's most popular react components library for building user interfaces."
-                />
-              </Grid>
+    <MKBox py={6} px={2}>
+    <Grid container spacing={4} alignItems="center">
+      <Grid item xs={12} md={5}>
+        <Card raised
+  sx={{
+    margin: "0",
+    padding: "0",
+    borderRadius: 10
+  }}>
+          <CardMedia
+            component="img"
+            alt="Profile Image"
+            height="auto"
+            image={profilePic}
+            title="Profile Image"
+            sx={{ borderRadius: 10, margin: 0 }} 
+
+          />
+        </Card>
+      </Grid>
+      <Grid item xs={12} md={7}>
+        <MKTypography variant="h3" component="h2" fontWeight="bold" gutterBottom>
+          About me
+        </MKTypography>
+        <MKTypography variant="body1" color="textSecondary" paragraph>
+          {aboutMeText}
+        </MKTypography>
+        <Grid container spacing={2} mt={2}>
+          {attributes.map((attribute, index) => (
+            <Grid item xs={12} sm={4} key={index}>
+              <MKBox textAlign="center">
+                <MKBox
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
+                  width="50px"
+                  height="50px"
+                  borderRadius="50%"
+                  bgcolor="error.main"
+                  color="primary"
+                  mx="auto"
+                  mb={2}
+                >
+                  <Icon fontSize="large">{attribute.icon}</Icon>
+                </MKBox>
+                <MKTypography variant="h6" component="h4" fontWeight="bold">
+                  {attribute.title}
+                </MKTypography>
+                <MKTypography variant="body2" color="textSecondary">
+                  {attribute.description}
+                </MKTypography>
+              </MKBox>
             </Grid>
-            <Grid container spacing={3} sx={{ mt: { xs: 0, md: 6 } }}>
-              <Grid item xs={12} md={6}>
-                <DefaultInfoCard
-                  icon="price_change"
-                  title="Save Time & Money"
-                  description="Creating your design from scratch with dedicated designers can be very expensive. Start with our Design System."
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <DefaultInfoCard
-                  icon="devices"
-                  title="Fully Responsive"
-                  description="Regardless of the screen size, the website content will naturally fit the given resolution."
-                />
-              </Grid>
-            </Grid>
-          </Grid>
+          ))}
         </Grid>
-      </Container>
-    </MKBox>
+      </Grid>
+    </Grid>
+  </MKBox>
   );
 }
 

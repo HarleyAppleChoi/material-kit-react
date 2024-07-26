@@ -22,7 +22,7 @@ function SkillCard({ icon,title,skills }) {
         width="30px"
         height="30px"
         borderRadius="50%"
-        bgColor="error"
+        bgColor="primary"
         color="white"
         mx="auto"
         mb={1}
